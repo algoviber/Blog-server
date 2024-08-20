@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
  const multer = require('multer');
  const uploadMiddleware = multer({ dest: 'uploads/' });
-const salt = bcrypt.genSaltSync(process.env.SALT_ROUNDS);
+const salt = bcrypt.genSaltSync(Numberprocess.env.SALT_ROUNDS));
 const fs= require('fs');
 const Post = require('./models/Post');
 require('dotenv').config();
