@@ -126,6 +126,10 @@ app.put('/post',uploadMiddleware.single('file'),async(req,res)=>{
     }
 
     const {token}= req.cookies;
+    if(!token){
+        return res.status(401).json({ error: 'JWT must be provided' });
+    }
+ 
     jwt.verify(token,process.env.SECRET,{},async (err,info)=>{
         if(err) throw err;
         const {id,title,summary,content,url} =req.body;
